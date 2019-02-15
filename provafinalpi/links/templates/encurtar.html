@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Encurtar URL</title>
+</head>
+<body>
+
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == "warning" %}<p  class="{{ message.tags }} alert alert-warning">{{ message }}</p>{% endif %}
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit">
+
+    </form>
+
+</body>
+</html>
